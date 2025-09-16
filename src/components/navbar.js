@@ -1,10 +1,16 @@
+import React from "react";
+import logo from "../images/logo.png";
+
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav
+      className="navbar navbar-expand-lg"
+      style={{ backgroundColor: "black", borderBottom: "2px solid" }}
+    >
       <div className="container-fluid">
-        {/* Brand */}
-        <a className="navbar-brand" href="#">
-          My App
+        {/* Brand / Logo */}
+        <a className="navbar-brand" href="/">
+          <img src={logo} alt="OTT Logo" style={{ maxWidth: "120px", height: "auto" }} />
         </a>
 
         {/* Toggler */}
@@ -17,7 +23,7 @@ function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" style={{ color: "red" }}></span>
         </button>
 
         {/* Navbar Content */}
@@ -25,23 +31,33 @@ function Navbar() {
           {/* Left Menu */}
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/" style={{ color: "white" }}>
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/movies" style={{ color: "white" }}>
+                Movies
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/tv-series" style={{ color: "white" }}>
                 TV Series
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/web-series" style={{ color: "white" }}>
                 Web Series
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Movies
+              <a className="nav-link" href="/watchlist" style={{ color: "white" }}>
+                My List
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/history" style={{ color: "white" }}>
+                History
               </a>
             </li>
           </ul>
@@ -53,20 +69,27 @@ function Navbar() {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              style={{ backgroundColor: "#111", color: "white", border: "1px solid red" }}
             />
-            <button className="btn btn-outline-light my-2 my-sm-0" type="submit">
+            <button
+              className="btn btn-outline-danger my-2 my-sm-0"
+              type="submit"
+            >
               Search
             </button>
           </form>
 
-          {/* Login / Signup */}
+          {/* Logout Button */}
           <div>
-            <a href="#" className="btn btn-outline-light mr-2">
-              Login
-            </a>
-            <a href="#" className="btn btn-primary">
-              Sign Up
-            </a>
+            <button
+              className="btn btn-danger"
+              style={{ backgroundColor: "red", borderColor: "red" }}
+              onClick={() => {
+                console.log("Logout clicked");
+              }}
+            > 
+              Logout
+            </button>
           </div>
         </div>
       </div>
