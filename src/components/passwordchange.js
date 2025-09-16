@@ -36,7 +36,8 @@ function ChangePassword() {
         style={{
           position: "relative",
           zIndex: 1,
-          minHeight: "calc(100vh - 56px)", // subtract navbar height
+          marginTop: "120px",
+          // subtract navbar height
         }}
       >
         <div

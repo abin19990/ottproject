@@ -1,22 +1,27 @@
 import React, { useState } from "react";
 import Navbar from "./navbar";
 import Footer from "./footer";
+import { useNavigate } from "react-router-dom";
 
 function Watchlist() {
   const initialMovies = [
-    { id: 1, title: "Inception", image: "https://i.pinimg.com/736x/ab/4e/15/ab4e15008f5db557f735d9b2065ccdab.jpg", liked: true },
-    { id: 2, title: "Interstellar", image: "https://i.pinimg.com/1200x/f0/0e/f4/f00ef4ef28062a3ffe32c80cfa039c86.jpg", liked: true },
-    { id: 3, title: "The Dark Knight", image: "https://i.pinimg.com/736x/6c/20/3b/6c203ba1491ddc63991c72278ac656cd.jpg", liked: true },
-    { id: 4, title: "Avengers: Endgame", image: "https://i.pinimg.com/1200x/95/26/68/9526684fe11e38cf6bb6fbd48e37de6a.jpg", liked: true },
-    { id: 5, title: "Titanic", image: "https://i.pinimg.com/736x/88/80/b6/8880b6d5f3517441316b1284f5921b10.jpg", liked: true },
-    { id: 6, title: "The Matrix", image: "https://i.pinimg.com/736x/ed/45/16/ed4516338fa5df348c13a2a7ce1e7998.jpg", liked: true },
-    { id: 7, title: "Gladiator", image: "https://i.pinimg.com/736x/d8/fa/6b/d8fa6b0a7e7321f7f5adef24d6f5abd7.jpg", liked: true },
-    { id: 8, title: "Parasite", image: "https://i.pinimg.com/736x/32/7e/19/327e19c46199e12f7091fcf0666edd67.jpg", liked: true },
-    { id: 9, title: "Joker", image: "https://i.pinimg.com/1200x/f5/81/a9/f581a9b6c9ab5043d60d6f4c9be96223.jpg", liked: true },
-    { id: 10, title: "Avatar", image: "https://i.pinimg.com/1200x/b2/f8/43/b2f843111df8347133dca44dc2c5f57b.jpg", liked: true },
+    { id: 1, title: "Inception", image: "https://i.pinimg.com/736x/ab/4e/15/ab4e15008f5db557f735d9b2065ccdab.jpg",video: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", liked: true },
+    { id: 2, title: "Interstellar", image: "https://i.pinimg.com/1200x/f0/0e/f4/f00ef4ef28062a3ffe32c80cfa039c86.jpg",video: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", liked: true },
+    { id: 3, title: "The Dark Knight", image: "https://i.pinimg.com/736x/6c/20/3b/6c203ba1491ddc63991c72278ac656cd.jpg",video: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", liked: true },
+    { id: 4, title: "Avengers: Endgame", image: "https://i.pinimg.com/1200x/95/26/68/9526684fe11e38cf6bb6fbd48e37de6a.jpg",video: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", liked: true },
+    { id: 5, title: "Titanic", image: "https://i.pinimg.com/736x/88/80/b6/8880b6d5f3517441316b1284f5921b10.jpg",video: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", liked: true },
+    { id: 6, title: "The Matrix", image: "https://i.pinimg.com/736x/ed/45/16/ed4516338fa5df348c13a2a7ce1e7998.jpg",video: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", liked: true },
+    { id: 7, title: "Gladiator", image: "https://i.pinimg.com/736x/d8/fa/6b/d8fa6b0a7e7321f7f5adef24d6f5abd7.jpg",video: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", liked: true },
+    { id: 8, title: "Parasite", image: "https://i.pinimg.com/736x/32/7e/19/327e19c46199e12f7091fcf0666edd67.jpg", video: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",liked: true },
+    { id: 9, title: "Joker", image: "https://i.pinimg.com/1200x/f5/81/a9/f581a9b6c9ab5043d60d6f4c9be96223.jpg",video: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", liked: true },
+    { id: 10, title: "Avatar", image: "https://i.pinimg.com/1200x/b2/f8/43/b2f843111df8347133dca44dc2c5f57b.jpg",video: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", liked: true },
   ];
 
   const [movies, setMovies] = useState(initialMovies);
+    const navigate = useNavigate();
+    const handlePlay = (id) => {
+    navigate(`/player/${id}`);
+  };
 
   const toggleLike = (id) => {
     setMovies(movies.filter((movie) => movie.id !== id));
@@ -50,12 +55,12 @@ function Watchlist() {
                       style={{ height: "300px", objectFit: "cover" }}
                     />
                     <button
-                      className="btn btn-danger play-btn"
-                      onClick={() => alert(`Playing ${movie.title}`)}
-                    >
-                      ▶ Play
-                    </button>
-                  </div>
+                    className="btn btn-danger play-btn"
+                    onClick={() => handlePlay(movie.id)}
+                  >
+                    ▶ Play
+                  </button>
+                </div>
 
                   <div className="card-body d-flex flex-column">
                     <h5

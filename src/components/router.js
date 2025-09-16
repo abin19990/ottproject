@@ -5,11 +5,17 @@ import RegisterPage from "./registerpage";
 import ChangePassword from "./passwordchange";
 import WatchList  from "./watchlist";
 import History from "./history";
+import Player from "./player";
+import HomePage from "./homepage";
 
 const router = createBrowserRouter([
   {
     path:"/",
     element: <App />,
+  },
+  {
+    path: "/home",
+    element: <HomePage />,
   },
   {
     path: "/login",
@@ -31,6 +37,10 @@ const router = createBrowserRouter([
     path: "/history",
     element: <History />,
   },
+     {
+  path: "/player/:id",
+  element: <Player />,
+},
 ]);
 
 export default router;
