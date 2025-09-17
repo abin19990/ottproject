@@ -45,11 +45,11 @@ function Navbar({ username = "logined user" }) {
               </a>
             </li>
             <li className="nav-item mx-2">
-              <a className="nav-link" href="/movies" style={{ color: "#ffffff" }}>
+              <a className="nav-link" href="/movielist" style={{ color: "#ffffff" }}>
                 Movies
               </a>
             </li>
-            <li className="nav-item mx-2">
+            {/* <li className="nav-item mx-2">
               <a className="nav-link" href="/tv-series" style={{ color: "#ffffff" }}>
                 TV Series
               </a>
@@ -58,7 +58,7 @@ function Navbar({ username = "logined user" }) {
               <a className="nav-link" href="/web-series" style={{ color: "#ffffff" }}>
                 Web Series
               </a>
-            </li>
+            </li> */}
             <li className="nav-item mx-2">
               <a className="nav-link" href="/watchlist" style={{ color: "#ffffff" }}>
                 My List
